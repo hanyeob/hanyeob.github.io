@@ -1,0 +1,96 @@
+body {
+  background-color: slategrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lobster", "Raleway", sans-serif;
+  color: snow;
+  -webkit-text-stroke: 0.5px #000;
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 35vh;
+  -webkit-text-stroke: 2px #000;
+}
+
+.clock__title {
+  display: flex;
+  font-size: 15vh;
+}
+
+.clock__sec {
+  font-size: 40px;
+}
+
+.greetings {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 3vh;
+  margin-bottom: 20px;
+}
+
+.List {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px 30px;
+  border-radius: 15px;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  padding-right: 20px;
+}
+
+.list-text {
+  display: inline-flex;
+  box-sizing: content-box;
+  min-width: 100px;
+}
+
+.js-toDoList {
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+.js-doneList {
+  border-left: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.js-weather {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px;
+  margin: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
