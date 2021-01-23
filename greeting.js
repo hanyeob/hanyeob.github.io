@@ -32,11 +32,13 @@ function paintGreeting(username,before=0) {
       word = 'Hello!';
   }
   greeting.innerText = `${word} ${username}`;
+  greeting.classList.remove('hidden');
 }
 
 function loadName() {
   const currentUser = localStorage.getItem(USER_LS);
   if (currentUser === null) {
+    greeting.classList.add('hidden');
     askForName();
   } else {
     paintGreeting(currentUser,1);

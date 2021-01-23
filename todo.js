@@ -2,12 +2,19 @@ const toDoForm = document.querySelector(".js-toDoForm"),
   toDoInput = toDoForm.querySelector("input"),
   toDoList = document.querySelector(".js-toDoList");
   doneList = document.querySelector(".js-doneList");
+  List = document.querySelector(".js-List");
 
 const TODOS_LS = "toDos",
 DONES_LS = "dones";
 
 let toDos = [],
 dones = [];
+
+function hideList(){
+    if(toDos.length+dones.length === 0){
+    List.classList.add('hidden');
+    }
+}
 
 function doneToDo(event){
   const btn = event.target;
@@ -42,6 +49,7 @@ function deleteDone(event) {
   });
   dones = cleanDones;
   saveDones();
+  hideList();
 }
 
 function deleteToDo(event) {
@@ -53,6 +61,7 @@ function deleteToDo(event) {
   });
   toDos = cleanToDos;
   saveToDos();
+  hideList();
 }
 
 function saveToDos() {
@@ -89,6 +98,7 @@ function paintDone(text) {
 }
 
 function paintToDo(text) {
+    List.classList.remove('hidden');
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const doneBtn = document.createElement("button");
@@ -134,6 +144,11 @@ function loadToDos() {
     parsedToDos.forEach(function(toDo) {
       paintDone(toDo.text);
     });
+  }
+  if ( ((loadedDones === null) && (loadedToDos === null)) ||
+  ((loadedDones === '[]') && (loadedToDos === '[]'))
+  ){
+    List.classList.add('hidden');
   }
 }
 
